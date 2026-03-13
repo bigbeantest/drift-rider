@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blob Loader</title>
+</head>
+<body>
+    <script>
+        // The HTML content we want to turn into a Blob
+        const content = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <style>
+                    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+                    iframe { width: 100%; height: 100%; border: none; }
+                </style>
+            </head>
+            <body>
+                <iframe src="https://bigbeantest.github.io/drift-rider/"></iframe>
+            </body>
+            </html>
+        `;
+
+        // Create the Blob with the correct MIME type
+        const blob = new Blob([content], { type: 'text/html' });
+        
+        // Generate a unique URL for that Blob
+        const blobURL = URL.createObjectURL(blob);
+        
+        // Open the Blob URL in the current window
+        window.location.replace(blobURL);
+    </script>
+</body>
+</html>
